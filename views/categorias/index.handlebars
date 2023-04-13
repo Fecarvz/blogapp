@@ -1,0 +1,18 @@
+<h4>Categorias: </h4>
+{{#each categorias}}
+<div class="card mt-4">
+  <div class="card-body">
+    <h5 class="card-title">{{this.nome}}</h5>
+    <p class="card-text">{{this.descricao}}</p>
+    <a href="/categorias/{{this.slug}}" class="btn btn-primary">Ver posts</a>
+  </div>
+</div>
+{{else}}
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Nenhuma categoria cadastrada</h5>
+    <p class="card-text">Cadastre uma categoria para começar a postar</p>
+    <a href="/admin/categorias/add" class="btn btn-primary">Criar categoria</a>
+  </div>
+</div>
+{{/each}}

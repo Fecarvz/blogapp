@@ -1,0 +1,22 @@
+
+
+<h3>Editar categoria:</h3>
+{{#each errors}}
+  <div class="alert alert-danger" role="alert">
+    {{this.text}}
+  </div>
+{{/each}}
+
+
+<div class="card">
+  <div class="card-body">
+    <form action="http://localhost:8081/admin/categorias/edit" method="POST">
+    <input type="hidden" name="id" value="{{categoria.id_categoria}}">
+      <label for="nome">Nome: </label>
+        <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome da categoria" value = "{{categoria.nome}}">
+      <label for="slug" >Slug:</label>
+        <input type="text" name="slug" id="slug" class="form-control" placeholder="Slug da categoria" value="{{categoria.slug}}">
+      <button type="submit" class="btn btn-success mt-2">Editar categoria</button>
+    </form>
+  </div>
+</div>

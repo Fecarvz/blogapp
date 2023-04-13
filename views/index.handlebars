@@ -1,0 +1,30 @@
+<div class="jumbotron jumbotron-fluid bg-dark text-white">
+  <div class="container">
+    <h1 class="display-4">Bem-vindo ao Blog do Node</h1>
+    <p class="lead">Aqui você encontra as últimas notícias e informações sobre o universo do Node.js</p>
+    <hr class="my-4">
+    <p>De desenvolvedores para desenvolvedores, nosso conteúdo é criado com muito carinho e dedicação.</p>
+    <a class="btn btn-primary btn-lg" href="/usuarios/registro" role="button">Inscreva-se agora</a>
+  </div>
+</div>
+
+<hr>
+<h2>Postagens recentes:</h2>
+{{#each postagens}}
+<div class="card mt-4">
+  <div class="card-body">
+    <h3 class="card-title">{{this.titulo}}</h3>
+    <p class="card-text">{{this.descricao}}</p>
+    <a href="/postagem/{{this.slug}}" class="btn btn-primary">Leia mais</a>
+  </div>
+  <div class="card-footer text-muted">
+    <small>Categoria: {{this.nome}}</small>
+    <small class="float-right">Data de publicação: {{this.createdAt}}</small>
+  </div>
+</div>
+
+{{else}}
+<div class="alert alert-danger mt-4" role="alert">
+  Nenhuma postagem cadastrada!
+</div>
+{{/each}}

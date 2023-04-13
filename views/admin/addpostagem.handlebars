@@ -1,0 +1,27 @@
+<h3>Nova postagem:</h3>
+{{#each errors}}
+  <div class="alert alert-danger" role="alert">
+    {{this.text}}
+  </div>
+{{/each}}
+<div class="card">
+  <div class="card-body">
+    <form action="http://localhost:8081/admin/postagens/nova" method="POST">
+      <label for="titulo">Titulo: </label>
+        <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Titulo do post" required>
+      <label for="slug" >Slug: </label>
+        <input type="text" name="slug" id="slug" class="form-control" placeholder="Slug do post" required>
+      <label for="descricao" >Descrição: </label>
+        <input type="text" name="descricao" id="descricao" class="form-control" placeholder="Descrição do post" required>
+      <label for="conteudo" >Conteúdo: </label>
+      <textarea name="conteudo" id="conteudo" class="form-control" required></textarea>
+      <label for="categoria" >Categoria: </label>
+      <select name="categoria" id="categoria" class="custom-select" required>
+        {{#each categorias}}
+          <option value="{{this.id}}">{{this.nome}}</option>
+        {{/each}}
+      </select>
+      <button type="submit" class="btn btn-success mt-2">Publicar</button>
+    </form>
+  </div>
+</div>
